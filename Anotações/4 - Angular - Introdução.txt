@@ -1,5 +1,17 @@
 -------------- Instalações ----------------------
 -------------- Extensões - VS Code ----------------------
+Angular Essential
+Angular files
+Angular Language Service
+auto close/rename tag
+bracket pair 
+color highlight
+editorconfig for vs Code
+eslint
+tslint
+npm
+path intellisense
+prettier
 -------------- Dicas VS Code ----------------------
 -------------- Criando Projeto ----------------------
 -------------- Explicando Angular ----------------------
