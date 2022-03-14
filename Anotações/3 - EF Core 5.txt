@@ -1,0 +1,38 @@
+----------- Instalando EF Core ------------
+dotnet tool install --global dotnet-ef
+dotnet-ef para ver oq pode ser realizado com ele
+----------- Referencia EF Core ------------
+ProEventos.API.csproj
+ctrl + shift + p e procurar por NuGet Gallery
+EntityFramework core/design/tools/sqlite 5.0.2
+----------- Criando Contexto ------------
+Criado o diretorio Data
+Criado a classe DataContext.cs onde vai herar o DbContext
+criado um DbSet<Evento> e instanciado lá em cima
+Startup
+criado o seguinte código para acessar o banco de dados
+services.AddDbContext<DataContext>(
+    context => context.UseSqlite(Configuration.GetConnectionString("Default"))
+);
+criado o construtor no DataContext.cs onde vai passar informações para o "Pai" dele que é o DbContext
+no appsetting.Development.json foi criado o  "ConnectionStrings": {"Default" : "Data Source = ProEventos.db" },
+
+----------- Migrations e Database ------------
+dotnet ef migrations add Initial -o Data/Migrations
+dotnet ef migrations remove
+dotnet ef database update para criar o banco de dados
+entrado no sqlite e inserido 2 dados
+
+----------- Contexto na Controller ------------
+Startup já está sendo passado para o services o DataContext
+No EventoController, o construtor recebe o DataContext context
+ctrl + . no DataContext para adicionar o ProEventos.API.DATA;
+ctrl + . entre o context e o ), e criado e atribuido o campo Context
+removido o Array 
+no construtor this.context = context;
+e nos métodos que recebiam o Array que foi removido, foi adicionado this.context.Eventos
+assim ele vai começar a puxar os dados do banco de dados 
+no HttpGET foi removido o IEnumerable e mudado o where por FirstOrDefault para não aparecer mais colchetes
+(tive uns pequenos problemas com os id, dando o comando  dotnet ef database update , ele refez a estrutura onde tinha errado o ID)
+----------- Enviando ao GIT ------------
+Colocado o nome da commit, clica para commitar
