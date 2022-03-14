@@ -1,0 +1,132 @@
+--------------- Configurando JSON ------------------
+Criado o arquivo global.json no src
+configurado para definir a versão 5.0.102 versão utilizada no curso
+dotnet new globaljson --sdk-version 5.0.102 --force
+--------------- Criando Projeto ------------------
+dotnet new vai informar todas as templates que podem ser utilizadas
+dotnet new webapi -n ProEventos.Api
+dotnet watch run vai executar o programa 
+https://localhost:5001/swagger/index.html
+https://localhost:5001/WeatherForecast
+
+--------------- Watch e HTTPS ------------------
+dotnet dev-certs https --trust  vai instalar um certificado
+http://localhost:5000/swagger/index.html
+--------------- Explicando Projeto ------------------
+Program.cs é o primeiro arquivo a ser executado
+CreateDefaultBuilder, fala sobre todas as configs que possuimos
+Se eu estiver rodando em um ambiente de desenvolvimento, vai ser pego o appsetting.development.json
+caso esteja no meio de produção, vai pegar o appsettings.json
+(Program)
+CreateDefaultBuilder informa, que vai carregar o Iconfiguration
+iLoggerFactory, tambem está sendo injetado na classe de startup
+a classe Startup, está recebendo o IConfiguration no construtor
+
+Método de ConfigureServices
+Método de Configure
+
+Class startup
+services.AddControllers(); está informando que está trabalhando com a arquitetura MVC VAI RETORNAR O CONTROLLER
+app.UseRouting(); O CONTROLLER SERA RETORNADO BASEADO EM DETERMINADA ROTA QUE VOCE DETERMINAR
+app.UseEndpoints(endpoints => {endpoints.MapControllers();}); (mapeamento de rota) E ELE RETORNARÁ DETERMINADO ENDPOINT
+com essas 3, foi possivel retornar a nossa controller
+
+Controllers WatherFOrecastController sufixo controller, herdando o ControllerBase
+--------------- Evento Controller ------------------
+Apagado muita coisa do controller, permanecento apenas 
+    public EventoController(){}
+    [HttpGet]
+    public String Get() { return "value";}
+alterado o nome da controler para EventoController
+Apagado a pasta WeatherForecast.cs    
+--------------- Postman ------------------
+Foi criado:
+[HttpPost] 
+[HttpPut("{id}")]
+[HttpDelete("{id}")]
+no EventoController
+testado no postman colocando o URL : 
+https://localhost:5001/api/evento
+https://localhost:5001/api/evento/1 (para o Put e Delete que precisam receber um parametro)
+--------------- Http + Verbos ------------------
+(Hypertext Transfer Protocol/ Recupera recursos referenciados por uma URL)
+
+Usuario solicita uma Request para o servidor:
+-verbos/ Header/ Content (formato)
+-Post/ Content Length: 15/ Olá Mundo Cruel
+Servidor devolve a Response:
+-Status Code/ Header / Content
+-201/ Content Type: Text / Olá! Sim, eu sou Cruel
+
+-------- Request: -------
+Verbos Principais no Curso:
+GET: Request Resource
+POST: Create Resource
+PUT: Update Resource
+PATCH: Update Partial
+DELETE: Delete Resource
+
+Headers: Metadados sobre a (Request)
+Content Type: Formato do conteudo
+Content Length: Tamanho do conteudo
+Authorization: Quem fez a chamada
+Accept: Quais tipos são aceitáveis
+Cookies: Passagem de dados por request
+
+Content Request (Conteúdo referente à requisição)
+HTML,CSS, JS, XML, JSON
+Conteúdo não é valido com qualquer verbo
+Informações para ajudar a atender a Request
+Onde passar tipos Binários e Blobs comuns
+
+-------- Response: -------
+Status Code:
+100-199: Informational
+200-299: Success
+300-399: Redirection
+400-499: Client errors
+500-599: Internal Servers errors
+
+Headers (Metadados sobre da Response)
+Content Type: Formato do conteudo
+Content Length: Tamanho do conteudo
+Expires: Quando considerar obsoleto
+Accept: Quais tipos são aceitáveis
+Cookies: Passagem de dados por request
+
+Content Response
+HTML,CSS, JS, XML, JSON
+Onde passar tipos Binários e Blobs comuns
+API's frequentemente tem seus próprios tipos (JSON é muito comum)
+--------------- JSON ------------------
+JavaScript Object Notation
+ou regras para armazenamento e troca de informações em texto
+mais rápido e fácil alem de ser menor do que o XML para realizar o PARSE(Conversão) para outras linguagens
+Parses e bibliotecas JSON existe para diversas linguagens como:
+C#,VB,Java,C++,Ruby,Python,etc...
+var json = {
+    "alunos":[
+        {"nome": "José","matricula":"12345"},
+        {"nome": "Maria","matricula":"252678"}
+    ]
+};
+for (var i = 0; i < json.alunos.Length; i++) {
+    console.log(json.alunos[i].nome + " - " + json.alunos[i].matricula);
+}
+console.table(json.alunos);
+--------------- Evento Model ------------------
+Criado o diretorio Models, criado Evento.cs e colocado 7 propriedades
+EventoController: Mudado o método GET, string virou Evento (apertando ctrl + . para adicionar a referência)
+adicionado os valores que irão ser retornados
+agora no swagger ele irá retornar os valores em um formato JSON
+Colocado o IEnumerable<Evento> em vez de apenas Evento e configurado do formato correto
+Retirado o conteudo do IEnumerable<Evento> e transoformado em um array no topo
+
+
+--------------- GIT ------------------
+Criado com o comando dotnet new gitignore
+git init para iniciar o git 
+git add . //para adicionar tudo
+git commit -m "Seção 2: .Net 5"
+
+---------------  ------------------
