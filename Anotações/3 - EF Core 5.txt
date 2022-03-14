@@ -36,3 +36,4 @@ no HttpGET foi removido o IEnumerable e mudado o where por FirstOrDefault para n
 (tive uns pequenos problemas com os id, dando o comando  dotnet ef database update , ele refez a estrutura onde tinha errado o ID)
 ----------- Enviando ao GIT ------------
 Colocado o nome da commit, clica para commitar
+clicado em Sync Changes
