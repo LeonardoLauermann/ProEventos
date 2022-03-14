@@ -128,5 +128,6 @@ Criado com o comando dotnet new gitignore
 git init para iniciar o git 
 git add . //para adicionar tudo
 git commit -m "Seção 2: .Net 5"
-
----------------  ------------------
+git remote add origin https://github.com/LeonardoLauermann/ProEventos.git //para acessar o repositorio no github
+git push -u origin master //para enviar ao github
+ 
