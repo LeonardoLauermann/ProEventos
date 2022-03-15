@@ -35,8 +35,10 @@ bootstrap(inicializar o app.component) -> tem um decorator (@Component) que vai 
 que possui seletores que é exatamente o mesmo que está dendo do index.html <app-root></app-root>
 transferido o style do app.component.html para o scss
 -------------- Gerando Componentes ----------------------
-
+ng g(enerate) c(omponents) eventos  para criar componente (cria a pasta dentro de app)
+ou botão direito + generate component (porem ele gera arquivo css em vez de scss)
 -------------- Usando Componentes ----------------------
+no app.component.html foi removido tudo menos <router-outlet></router-outlet>
 -------------- Diretiva ngFor ----------------------
 -------------- Request HTTP Angular ----------------------
 -------------- Config CORS ----------------------
