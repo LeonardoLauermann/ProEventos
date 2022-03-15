@@ -39,7 +39,11 @@ ng g(enerate) c(omponents) eventos  para criar componente (cria a pasta dentro d
 ou botão direito + generate component (porem ele gera arquivo css em vez de scss)
 -------------- Usando Componentes ----------------------
 no app.component.html foi removido tudo menos <router-outlet></router-outlet>
+Colocado titulo <h1></h1> dentro de Eventos e palestrantes
+criado a rota deles no app.component.html utilizando o selector deles (possivel achar nos .component.ts)
+<app-palestrantes/eventos>
 -------------- Diretiva ngFor ----------------------
+
 -------------- Request HTTP Angular ----------------------
 -------------- Config CORS ----------------------
 -------------- Adicionando Bootstrap ----------------------

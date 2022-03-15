@@ -10,6 +10,7 @@ export class EventosComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }
