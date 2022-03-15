@@ -32,6 +32,7 @@ namespace ProEventos.API
                 context => context.UseSqlite(Configuration.GetConnectionString("Default"))
             );
             services.AddControllers(); //vai trabalhar com a arquitetura MVC
+            services.AddCors();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ProEventos.API", Version = "v1" });
@@ -53,6 +54,8 @@ namespace ProEventos.API
             app.UseRouting();       //sistema de rotas
 
             app.UseAuthorization();
+
+            app.UseCors(acesso => acesso.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 
             app.UseEndpoints(endpoints =>   //sistema de endpoint
             {
