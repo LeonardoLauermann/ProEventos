@@ -4,6 +4,7 @@ dotnet-ef para ver oq pode ser realizado com ele
 ----------- Referencia EF Core ------------
 ProEventos.API.csproj
 ctrl + shift + p e procurar por NuGet Gallery
+ctrl + p no meu pc em casa
 EntityFramework core/design/tools/sqlite 5.0.2
 ----------- Criando Contexto ------------
 Criado o diretorio Data
