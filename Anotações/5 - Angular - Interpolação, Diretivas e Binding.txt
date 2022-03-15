@@ -13,10 +13,32 @@ no botão foi : (click)="isCollapsed = !isCollapsed"
 na div foi: [collapse]="isCollapsed" [isAnimated]="true"
 agora no Ts foi adicionado o isCollapsed = true;
 ------------- Grid dos Eventos --------------------
+removido <app-palestrantes></app-palestrantes> do app.component.html
+refeito a nova grid no eventos.component.html utilizando a ferramenta
+form.form-inline>div.form-group.mb-2
+table.table.table-striped>thead.thead-dark>tr>th*8
+tbody>tr>th*8
+assim ele gera automaticamente a estrutura
 ------------- Desafio Binding e Interpolação --------------------
+colocado o ngFor dentro do TR, semelhante a primeira vez que foi feito porem cada td recebendo um item
 ------------- Binding e Interpolação --------------------
+Diretivas Estruturais:
+*ngIf
+*ngFor
+*ngShow
+Binding e Interpolações
+{{eventos[0].imagemURL}}
 ------------- ngIf --------------------
+Adicionado *ngIf="eventos && eventos.length" no tbody no eventos.component.html
+e em baixo foi adicionado um tfoot para caso não possua nada informado
+a pessoa receber ao menos uma mensagem
+no tfoot foi adicionado o ngIf="!eventos.length"
+eventos.component.ts : transformado o public eventos: any = []; em um array, assim ele informa que foi Criado, mas que está vazio
 ------------- Propriedade Binding --------------------
+colocado a tag do img para representar as imagens
+colocado as imagens na pasta img, que foi criado dentro da pasta assets
+<td><img src="/assets/img/{{item.imagemURL}}" [style.width.px]="widthImg" [style.height.px]="heightImg" [style.margin.px]="marginImg"></td>
+foi criado o width,height e margin no typescript
 ------------- Two-way Data Binding --------------------
 ------------- Filtrando Grid --------------------
 ------------- Ajuste Layout --------------------

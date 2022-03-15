@@ -1,14 +1,18 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-eventos',
   templateUrl: './eventos.component.html',
-  styleUrls: ['./eventos.component.scss']
+  styleUrls: ['./eventos.component.scss'],
 })
 export class EventosComponent implements OnInit {
 
-  public eventos : any;
+  public eventos : any = [];
+  widthImg = 80;
+  heightImg = 80;
+  marginImg = 2;
 
 
   constructor(private http: HttpClient) { }

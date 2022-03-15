@@ -10,7 +10,6 @@ import { PalestrantesComponent } from './palestrantes/palestrantes.component';
 import { NavComponent } from './nav/nav.component';
 
 import { CollapseModule } from 'ngx-bootstrap/collapse';
-
 @NgModule({
   declarations: [
     AppComponent,

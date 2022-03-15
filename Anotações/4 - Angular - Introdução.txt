@@ -89,3 +89,6 @@ em app.module.ts foi adicionado
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 imports
 BrowserAnimationsModule
+
+Toda vez que for ser adicionado algo de ngx-bootstrap
+PRECISA FAZER A IMPORTAÇÃO NO APP.MODULE.TS

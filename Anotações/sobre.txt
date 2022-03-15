@@ -20,5 +20,6 @@ https://download.visualstudio.microsoft.com/download/pr/75483251-b77a-41a9-9ea2-
 https://sass-lang.com/documentation/syntax#scss 
 
 https://getbootstrap.com/docs/5.1/getting-started/introduction/
+https://valor-software.com/ngx-bootstrap/#/components
 
 
