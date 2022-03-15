@@ -18,7 +18,7 @@ export class EventosComponent implements OnInit {
 
   }
 
-  public getEventos(): void {
+  public getEventos(): void { //getEvento é a conexão com o back
     this.http.get('https://localhost:5001/api/eventos').subscribe(
       response => this.eventos = response,
       error => console.log(error)
