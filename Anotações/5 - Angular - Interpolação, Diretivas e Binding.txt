@@ -1,0 +1,22 @@
+------------- Navbar --------------------
+Criado o componente NAV
+ido no Bootstrap e pegado o código de NAV
+colado o conteudo no nav.component.html
+adicionado a rota no app.component.html do nav.component.html
+
+adicionado no app.module 
+import { CollapseModule } from 'ngx-bootstrap/collapse';
+imports  CollapseModule.forRoot(),
+
+colado os componentes no bottão e na div abaixo
+no botão foi : (click)="isCollapsed = !isCollapsed"
+na div foi: [collapse]="isCollapsed" [isAnimated]="true"
+agora no Ts foi adicionado o isCollapsed = true;
+------------- Grid dos Eventos --------------------
+------------- Desafio Binding e Interpolação --------------------
+------------- Binding e Interpolação --------------------
+------------- ngIf --------------------
+------------- Propriedade Binding --------------------
+------------- Two-way Data Binding --------------------
+------------- Filtrando Grid --------------------
+------------- Ajuste Layout --------------------
