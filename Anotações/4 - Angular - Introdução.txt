@@ -1,4 +1,7 @@
 -------------- Instalações ----------------------
+Angular https://angular.io
+nodejs https://nodejs.org/en/download/
+VS Code
 -------------- Extensões - VS Code ----------------------
 Angular Essential
 Angular files
@@ -12,10 +15,27 @@ tslint
 npm
 path intellisense
 prettier
--------------- Dicas VS Code ----------------------
 -------------- Criando Projeto ----------------------
+npm --version  
+node -v
+ng --version
+npm install -g @angular/cli
+ng new PROEVENTOS-App   => y => SCSS0
 -------------- Explicando Angular ----------------------
+package.json é onde fica os comandos padrões start/build/test
+package.json colocar "start" : "ng serve -o"
+quando é realizado o build, ele entra no angular.json
+primeiro arquivo que vai ser lido e carregado é o "index"
+dentro do index.html tem o <app-root></app-root> que é um componente angular
+main.ts é o typescript principal (ts é um javascript pré-processado)
+main.ts ele tem alguns imports
+se o environment for "produção = true" em environment.ts ele vai habilitar o modo produção
+starta o index.html -> main.ts -> appModule declara um componente / modulos -> 
+bootstrap(inicializar o app.component) -> tem um decorator (@Component) que vai decorar a classe com os metadados
+que possui seletores que é exatamente o mesmo que está dendo do index.html <app-root></app-root>
+transferido o style do app.component.html para o scss
 -------------- Gerando Componentes ----------------------
+
 -------------- Usando Componentes ----------------------
 -------------- Diretiva ngFor ----------------------
 -------------- Request HTTP Angular ----------------------
