@@ -74,3 +74,18 @@ agora ele vai começar a puxar a quantidade de itens que tem no banco de dados
 precisou ser alterado no eventos.component.html para tema e local (inicial em minusculo, igual no api)
 
 -------------- Adicionando Bootstrap ----------------------
+https://fontawesome.com/docs/web/setup/packages   link  para chegar no fontawesome
+ele será adicionado no package.json
+https://valor-software.com/ngx-bootstrap/#/documentation#getting-started  link para chegar no ngx-bootstrap
+npm install bootstrap@4
+ng add ngx-bootstrap
+
+ido na pasta de styles.scss e adicionado
+@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import '../node_modules/ngx-bootstrap/datepicker/bs-datepicker.css';
+@import '../node_modules/@fortawesome/fontawesome-free/css/all.min.css';
+
+em app.module.ts foi adicionado
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+imports
+BrowserAnimationsModule
