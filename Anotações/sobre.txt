@@ -1,6 +1,9 @@
 git clone https://github.com/LeonardoLauermann/ProEventos.git 
 dotnet dev-certs https --trust  vai instalar um certificado para o localhost
 
+git config --global user.name leonardo
+git config --global user.email leolds010101@gmail.com
+
 git init para iniciar o git 
 git add . //para adicionar tudo
 git commit -m "xx"
