@@ -90,3 +90,5 @@ response => {
     this.eventosFiltrados = this.eventos;
 },
 ------------- Ajuste Layout --------------------
+Removido o botão, removio o filtro em baixo - colocado ele do lado
+Adicionado 2 botões pelo bootstrap na parte de opções

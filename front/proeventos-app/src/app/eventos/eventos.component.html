@@ -3,16 +3,15 @@
 
 <div  class="form-inline">
   <div class="form-group mb-2">
+    <label class="mr-2">Filtro</label>
     <input
     type="text"
     class="form-control mr-2"
     placeholder="buscar"
     [(ngModel)]="filterList"
     >
-    <button class="btn btn-outline-success">Buscar</button>
   </div>
 </div>
-<h3>Filtro: {{filterList}}</h3>
 
 <table class="table table-striped text-center">
   <thead class="thead-dark">
@@ -46,7 +45,10 @@
       <td>{{item.dataEvento}}</td>
       <td>{{item.qtdPessoas}}</td>
       <td>{{item.lote}}</td>
-      <td>a</td>
+      <td>
+        <button class="btn btn-primary btn-sm mr-2">Editar</button>
+        <button class="btn btn-danger btn-sm">Remover</button>
+      </td>
     </tr>
   </tbody>
   <tfoot  *ngIf="!eventos.length">
