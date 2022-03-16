@@ -11,8 +11,12 @@
 <table class="table table-striped text-center">
   <thead class="thead-dark">
     <tr>
-      <th>#</th>
-      <th>Imagem</th>
+      <th>
+        <button class="btn btn-outline-light btn-sm" (click)="changeImg()">
+          {{showImg ? 'Ocultar' : 'Exibir'}}
+        </button>
+      </th>
+      <th>Id</th>
       <th>Tema</th>
       <th>Local</th>
       <th>Data</th>
@@ -23,14 +27,15 @@
   </thead>
   <tbody *ngIf="eventos && eventos.length">
     <tr *ngFor="let item of eventos">
-      <td>{{item.eventoId}}</td>
-      <td>
-        <img src="/assets/img/{{item.imagemURL}}"
+      <td><!-- precisa colocar o diretorio da imagem-->
+        <img [collapse]="!showImg" [isAnimated]="true"
+        src="/assets/img/{{item.imagemURL}}"
         [style.width.px]="widthImg"
         [style.height.px]="heightImg"
         [style.margin.px]="marginImg" />
       </td>
-      <td>{{item.tema}}</td>
+      <td>{{item.eventoId}}</td>
+      <td >{{item.tema}}</td>
       <td>{{item.local}}</td>
       <td>{{item.dataEvento}}</td>
       <td>{{item.qtdPessoas}}</td>

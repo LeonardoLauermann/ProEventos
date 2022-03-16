@@ -40,6 +40,15 @@ colocado as imagens na pasta img, que foi criado dentro da pasta assets
 <td><img src="/assets/img/{{item.imagemURL}}" [style.width.px]="widthImg" [style.height.px]="heightImg" [style.margin.px]="marginImg"></td>
 foi criado o width,height e margin no typescript
 
+Foi criado no eventos.component.ts
+showImg = true;
+  changeImg(){
+    this.showImg = !this.showImg; //vai receber o oposto dele (false/true)
+}
+Na img foi colocado o collapse
+foi colocado um botão para mostrar as imagens, no qual recebeu o onClick com o método changeImg()
+e no titulo foi colocado um Operador Ternario para Exibir/Ocultar
 ------------- Two-way Data Binding --------------------
+
 ------------- Filtrando Grid --------------------
 ------------- Ajuste Layout --------------------

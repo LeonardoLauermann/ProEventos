@@ -15,11 +15,15 @@ export class EventosComponent implements OnInit {
   marginImg = 2;
 
 
-  constructor(private http: HttpClient) { }
 
+  constructor(private http: HttpClient) { }
   ngOnInit(): void {
     this.getEventos();
+  }
 
+  showImg = true;
+  changeImg(){
+    this.showImg = !this.showImg; //vai receber o oposto dele (false/true)
   }
 
   public getEventos(): void { //getEvento é a conexão com o back
