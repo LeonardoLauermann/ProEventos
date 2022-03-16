@@ -1,19 +1,85 @@
 ------------- Solução e Projetos --------------------
 dotnet new sln -n ProEventos  
-dotnet new classlib -n ProEventos.Persistence
-dotnet new classlib -n ProEventos.Domain
 dotnet new classlib -n ProEventos.Application
+dotnet new classlib -n ProEventos.Domain
+dotnet new classlib -n ProEventos.Persistence
 ------------- Referenciando Projetos --------------------
+Adicionando os projetos dentro da "Solution"
+dotnet sln ProEventos.sln add ProEventos.API
 dotnet sln ProEventos.sln add ProEventos.Application
 dotnet sln ProEventos.sln add ProEventos.Domain
-dotnet sln ProEventos.sln add ProEventos.API
 dotnet sln ProEventos.sln add ProEventos.Persistence
+
+Recebem as referencias :
+dotnet add ProEventos.API/ProEventos.API.csproj reference ProEventos.Application
+
+(aqui dei apenas um ctrl c + ctrl v na referencia que o API recebeu, e mudei os nomes depois)
+API
+    <ProjectReference Include="..\ProEventos.Application\ProEventos.Application.csproj" />
+Aplication:
+    <ProjectReference Include="..\ProEventos.Domain\ProEventos.Domain.csproj" />
+    <ProjectReference Include="..\ProEventos.Persistence\ProEventos.Persistence.csproj" />
+Domain
+    Não teve referencias
+Persistence
+    <ProjectReference Include="..\ProEventos.Domain\ProEventos.Domain.csproj" />
+
 ------------- Entidades Domínio 01 --------------------
+Evento -> Palestrante Evento <- Palestrante
+Lote    \->   RedeSocial   <-/
+
+EVENTO precisa de PALESTRANTE, onde precisa ter onde vender ingresso(LOTE) e para divulgar precisa de RedeSocial, onde a RedeSocial tambem recebe Palestrante
+A entidade que vai relacionar EVENTO com PALESTRANTES 
+posso ter um PALESTRANTE em vários EVENTOS e posso ter um EVENTO com varios PALESTRANTE
+por isso vai ser adicionado o Palestrante Evento, que vai relacionar o palestrante para o evento
+
 ------------- Entidades Domínio 02 --------------------
+Transferido o Model de API para DOMAIN e excluido o arquivo c# que tinha
+Configurado o namespace do Evento.cs  no DOMAIN
+namespace ProEventos.Domain.Models
+transformado o Lote em um Objeto
+public IEnumerable<Lote> Lote { get; set; }
+Adicionado RedeSocial
+public IEnumerable<RedeSocial> RedeSocials { get; set; }
+Adicionado 2 novos string Tel e Email
+Criado as Classes Lote, RedeSocial e Palestrante
+Colocado os gets e set no RedeSocial/Lote/Palestrante
+Criado a Classe PalestranteEvento, que é onde vai associar os eventos com os PALESTRANTES
+Colocado os gets e set do PalestranteEvento, puxando a Classe Evento e Palestrante
+Colocado no Evento e Palestrante, o IEnumerable<PalestranteEvento>
 ------------- Novo Contexto --------------------
+Passado o DataContext.cs do API para Persistence
+Deletado os Migrations, ProEventos.db do API
+Instalado o EF no Nuget Gallery o 5.0.3
+Mudado para using ProEventos.Domain
+namespace ProEventos.Persistence
+Mudado Para ProEventosContext
+
+Colocado todas as Classes do Domain 
+Criado a função para juntar o Palestrante com o Evento
+  protected override void OnModelCreating(ModelBuilder modelBuilder){
+    modelBuilder.Entity<PalestranteEvento>().HasKey(PE => new{PE.EventoId,PE.PalestranteId}); 
+    }
 ------------- Migrations --------------------
+dotnet ef migrations add Initial -p ProEventos.Persistence -s ProEventos.API
+ele vai informar erro, ao clicar ali em baixo nos erros, ir arrumando 1 por 1
+Data virou Persistence e Models virou Domain
+DataContext virou ProEventosContext
+EventoId virou Id
+Agora executar o comando novamente
+dotnet restore ele informa que foi um erro do EF, que estava na versão 5.0.3, e antes era 5.0.2
+instalado o 5.0.2 certo e executado o código dnv
+Foi criado a pasta de Migrations no Persistence
 ------------- Database Update --------------------
+Adicionado ... No ProEventos.Persistence
+<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.2" />
+Criar o Banco de Dados
+dotnet ef database update -s ProEventos.API
 ------------- Interface Persistência --------------------
+Criado uma nova Interface no Persistence
+IProEventosPersistence.cs
+Vai ser criado todas as chamadas de persistencia
+
 ------------- Persistência - Classe 01 --------------------
 ------------- Persistência - Classe 02 --------------------
 ------------- Persistência - Classe 03 --------------------
