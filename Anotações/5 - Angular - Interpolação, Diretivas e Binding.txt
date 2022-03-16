@@ -39,6 +39,7 @@ colocado a tag do img para representar as imagens
 colocado as imagens na pasta img, que foi criado dentro da pasta assets
 <td><img src="/assets/img/{{item.imagemURL}}" [style.width.px]="widthImg" [style.height.px]="heightImg" [style.margin.px]="marginImg"></td>
 foi criado o width,height e margin no typescript
+
 ------------- Two-way Data Binding --------------------
 ------------- Filtrando Grid --------------------
 ------------- Ajuste Layout --------------------

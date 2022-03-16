@@ -10,6 +10,8 @@ git commit -m "xx"
 git remote add origin https://github.com/LeonardoLauermann/ProEventos.git //para acessar o repositorio no github
 git push -u origin master //para enviar ao github
 
+npm install --save-dev @angular-devkit/build-angular    Quando possuir o node_modules
+
 https://sqlitebrowser.org/dl/
 https://angular.io      npm install -g @angular/cli
 https://fontawesome.com/docs/web/setup/packages     npm install --save @fortawesome/fontawesome-free
