@@ -49,6 +49,44 @@ Na img foi colocado o collapse
 foi colocado um botão para mostrar as imagens, no qual recebeu o onClick com o método changeImg()
 e no titulo foi colocado um Operador Ternario para Exibir/Ocultar
 ------------- Two-way Data Binding --------------------
+Adicionado no Form de pesquisa  [(ngModel)]="filterList"
+criado no eventos.component.ts o filterList='', onde já se encontra vazio
+importado no module.ts o FormsModule
+alterado o <form> para um <div> para funcionar por enquanto,
+aparentemente mais tarde irá ser ajustado para form novamente
 
 ------------- Filtrando Grid --------------------
+transformado o filterList em uma propriedade privada
+
+criado método get e set para o filterList
+  public get filterList(){  
+    return this._filterList }
+
+  public set filterList(value:string){
+    this._filterList = value;
+    this._filterList = this.filterList ? this.filtrarEventos(this.filterList) : this.eventos}
+
+criado o método filtrarEventos
+
+  filtrarEventos(filtrarPor: string):any  {
+    filtrarPor = filtrarPor.toLocaleLowerCase(); //passa tudo para minusculo
+    return this.eventos.filter(
+      (evento: any) => evento.tema.toLocaleLowerCase().indexOf(filtrarPor) !== -1 || //ocorreu um erro na video, onde precisou ser colocado (evento: { tema: string; })
+      evento.local.toLocaleLowerCase().indexOf(filtrarPor) !== -1   //para pesquisar por local
+    )
+  }
+
+foi criado um 
+public eventosFiltrados: any = [];      //variavel 
+Modificado no filterList() 
+this.eventosFiltrados = this.filterList ? this.filtrarEventos(this.filterList) : this.eventos} 
+modificado no ngFor para eventosFiltrados
+<tr *ngFor="let item of eventosFiltrados">
+
+ido em getEventos //que é onde faz o vinculo com o banco de dados
+adicionado chaves, antes não possuia chaves, porque é apenas 1 coisa retornando, agora são 2
+response => {
+    this.eventos = response
+    this.eventosFiltrados = this.eventos;
+},
 ------------- Ajuste Layout --------------------

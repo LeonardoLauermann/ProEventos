@@ -1,12 +1,18 @@
 <h1>Eventos</h1>
 <hr>
 
-<form action="" class="form-inline">
+<div  class="form-inline">
   <div class="form-group mb-2">
-    <input type="text" class="form-control mr-2" placeholder="buscar">
+    <input
+    type="text"
+    class="form-control mr-2"
+    placeholder="buscar"
+    [(ngModel)]="filterList"
+    >
     <button class="btn btn-outline-success">Buscar</button>
   </div>
-</form>
+</div>
+<h3>Filtro: {{filterList}}</h3>
 
 <table class="table table-striped text-center">
   <thead class="thead-dark">
@@ -25,16 +31,16 @@
       <th>Opções</th>
     </tr>
   </thead>
-  <tbody *ngIf="eventos && eventos.length">
-    <tr *ngFor="let item of eventos">
+  <tbody *ngIf="eventos && eventos.length">   <!--Diretivas estruturais-->
+    <tr *ngFor="let item of eventosFiltrados">
       <td><!-- precisa colocar o diretorio da imagem-->
         <img [collapse]="!showImg" [isAnimated]="true"
         src="/assets/img/{{item.imagemURL}}"
         [style.width.px]="widthImg"
         [style.height.px]="heightImg"
-        [style.margin.px]="marginImg" />
+        [style.margin.px]="marginImg" />        <!--properties binding-->
       </td>
-      <td>{{item.eventoId}}</td>
+      <td>{{item.eventoId}}</td>  <!--inteporlação-->
       <td >{{item.tema}}</td>
       <td>{{item.local}}</td>
       <td>{{item.dataEvento}}</td>
