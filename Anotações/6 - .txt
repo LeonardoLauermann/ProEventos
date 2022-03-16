@@ -1,0 +1,31 @@
+------------- Solução e Projetos --------------------
+dotnet new sln -n ProEventos  
+dotnet new classlib -n ProEventos.Persistence
+dotnet new classlib -n ProEventos.Domain
+dotnet new classlib -n ProEventos.Application
+------------- Referenciando Projetos --------------------
+dotnet sln ProEventos.sln add ProEventos.Application
+dotnet sln ProEventos.sln add ProEventos.Domain
+dotnet sln ProEventos.sln add ProEventos.API
+dotnet sln ProEventos.sln add ProEventos.Persistence
+------------- Entidades Domínio 01 --------------------
+------------- Entidades Domínio 02 --------------------
+------------- Novo Contexto --------------------
+------------- Migrations --------------------
+------------- Database Update --------------------
+------------- Interface Persistência --------------------
+------------- Persistência - Classe 01 --------------------
+------------- Persistência - Classe 02 --------------------
+------------- Persistência - Classe 03 --------------------
+------------- Organizar Persistencia 01 --------------------
+------------- Organizar Persistencia 02 --------------------
+------------- Contrato Evento Application --------------------
+------------- Evento Application 01 --------------------
+------------- Evento Application 02 --------------------
+------------- Controller 01 --------------------
+------------- Controller 02 --------------------
+------------- Teste - Dependency Injection --------------------
+------------- Teste - As No Tracking --------------------
+------------- Newtonsoff Loop Infinito --------------------
+------------- Rede Social - Delete Cascade --------------------
+------------- Condig Cascade e Postman --------------------
