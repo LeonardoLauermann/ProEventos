@@ -25,3 +25,6 @@ https://getbootstrap.com/docs/5.1/getting-started/introduction/
 https://valor-software.com/ngx-bootstrap/#/components
 
 
+IQueryable
+Ela fornece a funcionalidade para avaliar as consultas em uma fonte de dados específica no qual o tipo de dado não foi especificado.
+

@@ -81,8 +81,24 @@ IProEventosPersistence.cs
 Vai ser criado todas as chamadas de persistencia
 
 ------------- Persistência - Classe 01 --------------------
+Criado a Classe ProEventosPersistence.cs
+importado a interface IProEventosPersistence
+Para implementar ele, o contexto está em ProEventosContext
+Criado o construtor no ProEventosPersistence.cs que recebe como parâmetro o ProEventosContext
+ctrl . no context e "initialize field from parameter"
+Implementado o Add,Update,Remove/range, SaveChanges
+
 ------------- Persistência - Classe 02 --------------------
+foi colocado no bool includePalestrantes = false
+adicionado um IQueryable onde precisa utilizar um using System.Linq 
+como eles são task, precisa ser adicionado o async
+precisou adicionar o Include(using.EntityFrameworkCore) que é onde vai ser adicionado o "Lotes" e "RedesSociais"
+Vai receber um if(includePalestrantes) para adicionar Palestrante
+e vai organizar com o OrderBy
+
 ------------- Persistência - Classe 03 --------------------
+Foi copiado as mesmas formas do Evento e foi alternado para ficar com os nomes corretos
+
 ------------- Organizar Persistencia 01 --------------------
 ------------- Organizar Persistencia 02 --------------------
 ------------- Contrato Evento Application --------------------
