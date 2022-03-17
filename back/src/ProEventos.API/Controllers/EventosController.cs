@@ -4,8 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using ProEventos.Persistence;
 using ProEventos.Domain;
-using ProEventos.Repositorio;
 
 namespace ProEventos.API.Controllers
 {
