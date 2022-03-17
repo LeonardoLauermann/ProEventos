@@ -2,13 +2,13 @@
 dotnet new sln -n ProEventos  
 dotnet new classlib -n ProEventos.Application
 dotnet new classlib -n ProEventos.Domain
-dotnet new classlib -n ProEventos.Persistence
+dotnet new classlib -n ProEventos.Repositorio
 ------------- Referenciando Projetos --------------------
 Adicionando os projetos dentro da "Solution"
 dotnet sln ProEventos.sln add ProEventos.API
 dotnet sln ProEventos.sln add ProEventos.Application
 dotnet sln ProEventos.sln add ProEventos.Domain
-dotnet sln ProEventos.sln add ProEventos.Persistence
+dotnet sln ProEventos.sln add ProEventos.Repositorio
 
 Recebem as referencias :
 dotnet add ProEventos.API/ProEventos.API.csproj reference ProEventos.Application
@@ -100,7 +100,15 @@ e vai organizar com o OrderBy
 Foi copiado as mesmas formas do Evento e foi alternado para ficar com os nomes corretos
 
 ------------- Organizar Persistencia 01 --------------------
+Realizado a copia da interface 2 vezes
+Intitulados de IGeral,IEvento,IPalestrante
+Onde cada Interface ficou com um especifico
+
+Persistencia seria basicamente o Repositorio
 ------------- Organizar Persistencia 02 --------------------
+Realizado a mesma coisa com os Métodos, que foi feito com as interfaces
+colocado eles dentro da pasta de Métodos
+
 ------------- Contrato Evento Application --------------------
 ------------- Evento Application 01 --------------------
 ------------- Evento Application 02 --------------------
