@@ -110,12 +110,24 @@ Realizado a mesma coisa com os Métodos, que foi feito com as interfaces
 colocado eles dentro da pasta de Métodos
 
 ------------- Contrato Evento Application --------------------
-Criado uma pasta para o Context no Persistence
+Criado uma pasta para o Context no Persistence, finalizado a parte de Persistence
+Application:
+Criado a pasta Contratos, onde foi criado as interfaces
+Adicionado a interface IEventoService, onde recebeu o conteudo do IEventosPersistence
 
 ------------- Evento Application 01 --------------------
+Criado o EventosService.cs herdando a interface EventosService.cs
+Criado o construtor, onde ele recebe como parametro o IGeralPersistence/IEventosPersistence
+ctrl + . e initialize field from parameter
+Implementado o EventosService  
 ------------- Evento Application 02 --------------------
+Terminado de implementar o EventosService.cs
+
 ------------- Controller 01 --------------------
+Alterado o construtor no EventosController, para receber o IEventosService
+Alterado os métodos GET's
 ------------- Controller 02 --------------------
+Finalizado as alterações em EventosController.cs
 ------------- Teste - Dependency Injection --------------------
 ------------- Teste - As No Tracking --------------------
 ------------- Newtonsoff Loop Infinito --------------------
