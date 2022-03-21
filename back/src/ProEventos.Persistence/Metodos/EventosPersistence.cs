@@ -14,6 +14,7 @@ namespace ProEventos.Persistence.Metodos
         public EventosPersistence(ProEventosContext context)
         {
             this.context = context;
+            //this.context.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
         }        
 
 //------------------------------------- EVENTO -----------------------------------------------\\  
@@ -27,7 +28,7 @@ namespace ProEventos.Persistence.Metodos
             query = query.Include(e => e.PalestrantesEventos).ThenInclude(pe => pe.Palestrante);
             }
 
-            query = query.OrderBy(e => e.Id);
+            query = query.AsNoTracking().OrderBy(e => e.Id);
 
             return await query.ToArrayAsync();
         }
@@ -41,7 +42,7 @@ namespace ProEventos.Persistence.Metodos
             query = query.Include(e => e.PalestrantesEventos).ThenInclude(pe => pe.Palestrante);
             }
                                     //A cada evento que tiver, procura o tema, converte para lower e analisa se contem um tema convertido em lower 
-            query = query.OrderBy(e => e.Id).Where(e => e.Tema.ToLower().Contains(tema.ToLower()));
+            query = query.AsNoTracking().OrderBy(e => e.Id).Where(e => e.Tema.ToLower().Contains(tema.ToLower()));
 
             return await query.ToArrayAsync();
         }
@@ -54,7 +55,7 @@ namespace ProEventos.Persistence.Metodos
             query = query.Include(e => e.PalestrantesEventos).ThenInclude(pe => pe.Palestrante);
             }
                                     
-            query = query.OrderBy(e => e.Id).Where(e => e.Id == eventoId);
+            query = query.AsNoTracking().OrderBy(e => e.Id).Where(e => e.Id == eventoId);
                                 //retornando apenas 1   
             return await query.FirstOrDefaultAsync();
         }

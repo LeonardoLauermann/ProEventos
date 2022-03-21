@@ -129,7 +129,12 @@ Alterado os métodos GET's
 ------------- Controller 02 --------------------
 Finalizado as alterações em EventosController.cs
 ------------- Teste - Dependency Injection --------------------
+Adicionado no Startup.cs do API
+services.AddScoped<IEventosService,EventosService>(); //porque está adicionado no EventosController
+services.AddScoped<IGeralPersistence,GeralPersistence>(); //porque está adicionado no construtor do EventosService Application
+services.AddScoped<IEventosPersistence,EventosPersistence>(); //porque está adicionado no construtor do EventosService Application
 ------------- Teste - As No Tracking --------------------
+Adicionado AsNoTracking() nos métodos do EventosPersistence/PalestrantePersistence
 ------------- Newtonsoff Loop Infinito --------------------
 ------------- Rede Social - Delete Cascade --------------------
 ------------- Condig Cascade e Postman --------------------

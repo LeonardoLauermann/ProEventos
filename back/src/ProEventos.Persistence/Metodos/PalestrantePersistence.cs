@@ -26,7 +26,7 @@ namespace ProEventos.Persistence.Metodos
             query = query.Include(p => p.PalestrantesEventos).ThenInclude(pe => pe.Evento);
             }
             //ordenar Pelo Id
-            query = query.OrderBy(p => p.Id);
+            query = query.AsNoTracking().OrderBy(p => p.Id);
 
             return await query.ToArrayAsync();
         }
@@ -40,7 +40,7 @@ namespace ProEventos.Persistence.Metodos
             query = query.Include(p => p.PalestrantesEventos).ThenInclude(pe => pe.Evento);
             }
                                     //A cada evento que tiver, procura o tema, converte para lower e analisa se contem um tema convertido em lower 
-            query = query.OrderBy(p => p.Id).Where(p => p.Nome.ToLower().Contains(nome.ToLower()));
+            query = query.AsNoTracking().OrderBy(p => p.Id).Where(p => p.Nome.ToLower().Contains(nome.ToLower()));
 
             return await query.ToArrayAsync();
         }
@@ -55,7 +55,7 @@ namespace ProEventos.Persistence.Metodos
             query = query.Include(p => p.PalestrantesEventos).ThenInclude(pe => pe.Evento);
             }
                                     
-            query = query.OrderBy(p => p.Id).Where(p => p.Id == palestranteId);
+            query = query.AsNoTracking().OrderBy(p => p.Id).Where(p => p.Id == palestranteId);
                                 //retornando apenas 1   
             return await query.FirstOrDefaultAsync();
         }

@@ -14,7 +14,6 @@ namespace ProEventos.Application
         {
             this.eventosPersistence = eventosPersistence;
             this.geralPersistence = geralPersistence;
-
         }
         public async Task<Evento> AddEventos(Evento model)
         {
