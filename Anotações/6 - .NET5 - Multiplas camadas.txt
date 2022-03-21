@@ -104,13 +104,13 @@ Realizado a copia da interface 2 vezes
 Intitulados de IGeral,IEvento,IPalestrante
 Onde cada Interface ficou com um especifico
 
-Persistencia seria basicamente o Repositorio
+Persistence seria basicamente o Repositorio
 ------------- Organizar Persistencia 02 --------------------
 Realizado a mesma coisa com os Métodos, que foi feito com as interfaces
 colocado eles dentro da pasta de Métodos
 
 ------------- Contrato Evento Application --------------------
-Criado uma pasta para o Context no Repositorio
+Criado uma pasta para o Context no Persistence
 
 ------------- Evento Application 01 --------------------
 ------------- Evento Application 02 --------------------

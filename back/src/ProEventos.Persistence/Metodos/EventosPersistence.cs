@@ -2,9 +2,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using ProEventos.Domain;
+using ProEventos.Persistence.Context;
 using ProEventos.Persistence.Contratos;
 
-namespace ProEventos.Persistence
+namespace ProEventos.Persistence.Metodos
 {
     public class EventosPersistence : IEventosPersistence
     {
