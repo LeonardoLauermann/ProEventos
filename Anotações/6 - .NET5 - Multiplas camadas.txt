@@ -144,6 +144,14 @@ que foi colocado em todos em locais semelhantes
 query = query.AsNoTracking().OrderBy....
 
 ------------- Newtonsoff Loop Infinito --------------------
+Ido em startup.cs
+adicionado o AddNewtonsoftJson()
+services.AddControllers().AddNewtonsoftJson();
+porém não vai funcionar o ctrl + .
+Microsoft.aspnetcore.mvc.newtonsoftjson
+Depois vai ser complementado com o seguinte:
+services.AddControllers().AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+
 
 
 ------------- Rede Social - Delete Cascade --------------------
