@@ -24,7 +24,9 @@ https://sass-lang.com/documentation/syntax#scss
 https://getbootstrap.com/docs/5.1/getting-started/introduction/
 https://valor-software.com/ngx-bootstrap/#/components
 
+ctrl s d save all
 
 IQueryable
 Ela fornece a funcionalidade para avaliar as consultas em uma fonte de dados específica no qual o tipo de dado não foi especificado.
 
+pegado o URL no SwaggerUI no primeiro GET API/EVENTOS https://localhost:44322/api/Eventos

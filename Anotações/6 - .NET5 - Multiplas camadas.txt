@@ -134,7 +134,17 @@ services.AddScoped<IEventosService,EventosService>(); //porque está adicionado 
 services.AddScoped<IGeralPersistence,GeralPersistence>(); //porque está adicionado no construtor do EventosService Application
 services.AddScoped<IEventosPersistence,EventosPersistence>(); //porque está adicionado no construtor do EventosService Application
 ------------- Teste - As No Tracking --------------------
-Adicionado AsNoTracking() nos métodos do EventosPersistence/PalestrantePersistence
+O método está "segurando" o elemento(evento), onde vai precisar colocar o AsNoTracking para fazer com que ele 
+esteja "livre"
+pode ser adicionado no Construtor do EventosPersistence/PalestrantePersistence seguinte comando:
+this.context.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
+ou colocar em cada método o seguinte:
+AsNoTracking() nos métodos 
+que foi colocado em todos em locais semelhantes
+query = query.AsNoTracking().OrderBy....
+
 ------------- Newtonsoff Loop Infinito --------------------
+
+
 ------------- Rede Social - Delete Cascade --------------------
 ------------- Condig Cascade e Postman --------------------

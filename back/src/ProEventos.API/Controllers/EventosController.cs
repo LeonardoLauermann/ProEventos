@@ -22,7 +22,7 @@ namespace ProEventos.API.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get() //IActionResult nos permite retornar o statuscode do http
+        public async Task<IActionResult> Get() //IActionResult nos permite retornar o statuscode do http(100-200-300-400-500)
         {
             try
             {
@@ -37,7 +37,7 @@ namespace ProEventos.API.Controllers
             }
         }
         [HttpGet("{id}")]   //criado esse novo get porque ele vai receber o ID
-        public async Task<IActionResult> GetById(int id)  //IActionResult nos permite retornar o statuscode do http
+        public async Task<IActionResult> GetById(int id)  //IActionResult nos permite retornar o statuscode do http(100-200-300-400-500)
 
         {
             try
@@ -54,7 +54,7 @@ namespace ProEventos.API.Controllers
         }
 
         [HttpGet("{tema}/tema")]   //criado esse novo get porque ele vai receber o string
-        public async Task<IActionResult> GetByTema(string tema) //IActionResult nos permite retornar o statuscode do http
+        public async Task<IActionResult> GetByTema(string tema) //IActionResult nos permite retornar o statuscode do http(100-200-300-400-500)
         {
             try
             {
@@ -69,11 +69,8 @@ namespace ProEventos.API.Controllers
             }
         }
 
-
-
-
         [HttpPost]
-        public async Task<IActionResult> Post(Evento model)
+        public async Task<IActionResult> Post(Evento model)//IActionResult nos permite retornar o statuscode do http(100-200-300-400-500)
         {
             try
             {
@@ -89,7 +86,7 @@ namespace ProEventos.API.Controllers
         }
 
         [HttpPut("{id}")] //recebe o parametro de ID
-        public async Task<IActionResult> Put(int id, Evento model)
+        public async Task<IActionResult> Put(int id, Evento model)//IActionResult nos permite retornar o statuscode do http(100-200-300-400-500)
         {
             try
             {
@@ -107,7 +104,7 @@ namespace ProEventos.API.Controllers
 
 
         [HttpDelete("{id}")] //recebe o parametro de ID
-        public async Task<IActionResult> delete(int id)
+        public async Task<IActionResult> delete(int id)//IActionResult nos permite retornar o statuscode do http(100-200-300-400-500)
         {
             try
             { 

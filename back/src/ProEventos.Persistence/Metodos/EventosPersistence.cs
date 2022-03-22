@@ -15,17 +15,18 @@ namespace ProEventos.Persistence.Metodos
         {
             this.context = context;
             //this.context.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
-        }        
+        }
 
-//------------------------------------- EVENTO -----------------------------------------------\\  
+        //------------------------------------- EVENTO -----------------------------------------------\\  
 
         public async Task<Evento[]> GetAllEventosAsync(bool includePalestrantes = false)
         {                                            //dado o evento "e", vai ser incluido nos Lotes/RedesSociais
             IQueryable<Evento> query = this.context.Eventos.Include(e => e.Lotes).Include(e => e.RedesSociais);
-                //se o includePalestrantes for positivo, ele irá entrar no IF para adicionar Evento no PalestranteEventos     
-            if(includePalestrantes){
-            //Dado o PalestranteEventos, Irá ser adicionado o Palestrante
-            query = query.Include(e => e.PalestrantesEventos).ThenInclude(pe => pe.Palestrante);
+            //se o includePalestrantes for positivo, ele irá entrar no IF para adicionar Evento no PalestranteEventos     
+            if (includePalestrantes)
+            {
+                //Dado o PalestranteEventos, Irá ser adicionado o Palestrante
+                query = query.Include(e => e.PalestrantesEventos).ThenInclude(pe => pe.Palestrante);
             }
 
             query = query.AsNoTracking().OrderBy(e => e.Id);
@@ -36,12 +37,13 @@ namespace ProEventos.Persistence.Metodos
         public async Task<Evento[]> GetAllEventosByTemaAsync(string tema, bool includePalestrantes = false)
         {
             IQueryable<Evento> query = this.context.Eventos.Include(e => e.Lotes).Include(e => e.RedesSociais);
-                //se o includePalestrantes for positivo, ele irá entrar no IF para adicionar Evento no PalestranteEventos                
-            if(includePalestrantes){
-            //Dado o PalestranteEventos, Irá ser adicionado o Palestrante
-            query = query.Include(e => e.PalestrantesEventos).ThenInclude(pe => pe.Palestrante);
+            //se o includePalestrantes for positivo, ele irá entrar no IF para adicionar Evento no PalestranteEventos                
+            if (includePalestrantes)
+            {
+                //Dado o PalestranteEventos, Irá ser adicionado o Palestrante
+                query = query.Include(e => e.PalestrantesEventos).ThenInclude(pe => pe.Palestrante);
             }
-                                    //A cada evento que tiver, procura o tema, converte para lower e analisa se contem um tema convertido em lower 
+            //A cada evento que tiver, procura o tema, converte para lower e analisa se contem um tema convertido em lower 
             query = query.AsNoTracking().OrderBy(e => e.Id).Where(e => e.Tema.ToLower().Contains(tema.ToLower()));
 
             return await query.ToArrayAsync();
@@ -49,14 +51,15 @@ namespace ProEventos.Persistence.Metodos
         public async Task<Evento> GetEventoByIdAsync(int eventoId, bool includePalestrantes = false)
         {
             IQueryable<Evento> query = this.context.Eventos.Include(e => e.Lotes).Include(e => e.RedesSociais);
-                //se o includePalestrantes for positivo, ele irá entrar no IF para adicionar Evento no PalestranteEventos
-            if(includePalestrantes){
-            //Dado o PalestranteEventos, Irá ser adicionado o Palestrante
-            query = query.Include(e => e.PalestrantesEventos).ThenInclude(pe => pe.Palestrante);
+            //se o includePalestrantes for positivo, ele irá entrar no IF para adicionar Evento no PalestranteEventos
+            if (includePalestrantes)
+            {
+                //Dado o PalestranteEventos, Irá ser adicionado o Palestrante
+                query = query.Include(e => e.PalestrantesEventos).ThenInclude(pe => pe.Palestrante);
             }
-                                    
+
             query = query.AsNoTracking().OrderBy(e => e.Id).Where(e => e.Id == eventoId);
-                                //retornando apenas 1   
+            //retornando apenas 1   
             return await query.FirstOrDefaultAsync();
         }
 
