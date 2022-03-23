@@ -26,6 +26,10 @@ https://valor-software.com/ngx-bootstrap/#/components
 
 ctrl s d save all
 
+Banco de dados 
+dotnet ef migrations add Initial -p ProEventos.Persistence -s ProEventos.API
+dotnet ef database update -s ProEventos.API
+
 IQueryable
 Ela fornece a funcionalidade para avaliar as consultas em uma fonte de dados específica no qual o tipo de dado não foi especificado.
 
