@@ -145,14 +145,17 @@ query = query.AsNoTracking().OrderBy....
 
 ------------- Newtonsoff Loop Infinito --------------------
 Ido em startup.cs
-adicionado o AddNewtonsoftJson()
+adicionado o AddNewtonsoftJson() logo após o AddControllers()
 services.AddControllers().AddNewtonsoftJson();
-porém não vai funcionar o ctrl + .
+porém não vai funcionar, necessario ir no Nugget Gallery
 Microsoft.aspnetcore.mvc.newtonsoftjson
 Depois vai ser complementado com o seguinte:
 services.AddControllers().AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
-
-
-
+                                        
 ------------- Rede Social - Delete Cascade --------------------
-------------- Condig Cascade e Postman --------------------
+Quando utilizada o método de delete, ele exclui Eventos/Lotes
+Mas não está deletando o RedesSociais por ter 2 chaves estrangeiras
+------------- Config Cascade e Postman --------------------
+Adicionaod  no ProEventosController
+modelBuilder.Entity<Evento>().HasMany(e => e.RedesSociais).WithOne(rs => rs.Evento).OnDelete(DeleteBehavior.Cascade);
+modelBuilder.Entity<Palestrante>().HasMany(e => e.RedesSociais).WithOne(rs => rs.Palestrante).OnDelete(DeleteBehavior.Cascade);
